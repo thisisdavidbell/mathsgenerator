@@ -1,0 +1,218 @@
+h1 {
+  color: blue
+}
+
+body {
+  font-family: Arial;
+  background-color: lightgrey;
+}
+
+
+@media screen {
+  .centercolumn {
+    text-align: center;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    min-height: 500px;
+    border: 1px solid darkgrey;
+    border-radius: 3px;
+  }
+}
+
+@media print {
+  .centercolumn {
+    text-align: center;    
+  }
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.toptext {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.answer {
+  color: darkgrey;
+  border-color: black;
+}
+
+.qnum {
+  font-size: x-large;            
+  text-align: left;
+//  text-decoration: underline;
+}
+
+a{
+  text-decoration: none
+}
+
+.error {
+  background-color: red;
+}
+
+.dateLine, .answerLine {
+  display: inline-block;
+  border-style: solid;
+//  border-color: black;
+  border-width: 0px;
+  border-bottom-width: 2px;
+}
+
+.dateLine {
+  width: 200px;
+}
+
+.answerLine {
+  width: 50px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.vspace {
+  height: 10px;
+}
+
+.hspace {
+  width: 10px;
+}
+
+.left {
+  text-align: left;
+}
+
+.screen, .sheet1, .sheet2, .sheet3, .sheet4 {
+  display: inline-block;
+  line-height: 30px;
+  font-weight: bold;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 3px;  
+//  transition: background-color 0.5s, border-color 0.5s;
+}
+
+
+.screen {
+  color: black;
+  background-color: white;
+  border-color: yellow;
+}
+
+.screen:hover{
+  background-color: yellow;
+  color: black;
+}
+
+.sheet1 {
+  color: red;
+  background-color: white;
+  border-color: red;
+}
+
+.sheet1:hover{
+  background-color: red;
+  color: white;
+}
+
+.sheet2 {
+  color: green;
+  background-color: white;
+  border-color: green;
+}
+
+.sheet2:hover{
+  background-color: green;
+  color: white;
+}
+
+.sheet3 {
+  color: orange;
+  background-color: white;
+  border-color: orange;
+}
+
+.sheet3:hover{
+  background-color: orange;
+  color: white;
+}
+
+.sheet4 {
+  color: blue;
+  background-color: white;
+  border-color: blue;
+}
+
+.sheet4:hover{
+  background-color: blue;
+  color: white;
+}
+
+/* the 1 space on screen and sheet to insert 4 or 8 question areas */
+.questionGrid {
+  background-color: white;
+}
+
+/* the 4 or 8 non-specific question areas */
+questionArea {
+  display: inline-block;
+  vertical-align: middle;
+  height: 215px;
+  width: 280px;
+//was 320
+  background-color: white;
+//  border-style: solid;
+//  border-color: black;
+//  border-width: 5px;
+}
+
+/* an MQM specific box */
+MGMGrid, MGMGridFinalAnswer, MGMGridAnswer {
+  display: inline-block;
+  height: 40px;
+  width: 65px;
+  vertical-align: middle; 
+  border-style: solid;  
+}
+
+MGMGridAnswer {
+  border-radius: 3px;   
+}
+
+MGMGridFinalAnswer {
+  border-width: 4px;
+  border-radius: 3px;  
+}
+
+gridPadding {
+  display: block;
+  height: 20px;
+  width: 150px;
+//  vertical-align: middle; 
+//  text-align: center; 
+}
+
+.colorL1 {
+  background-color: white;
+  color: red;
+}
+.colorL2 {
+  background-color: white;
+  color: green;
+}
+.colorL3 {
+  background-color: white;
+  color: orange;
+}
+.colorL4 {
+  background-color: white;
+  color: blue;
+}
