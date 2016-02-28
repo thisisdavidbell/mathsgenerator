@@ -391,25 +391,48 @@ function createForm(level, defaultFirstNums,defaultSecNums) {
 
   var grid = document.createElement('div');
   var form = document.createElement('form');
-  var level = level++;
-  var levelText = document.createTextNode(level + ")");
+  var level = level + 1;
+  var levelText = document.createTextNode(level + ") Enter desired inputs");
+  var spacer1 = document.createElement('div');
+  spacer1.className = 'vspace';
 
-  var label1 = document.createTextNode("Lower limit:" + defaultFirstNums[0]);
 
+  var firstNumTitleDiv = document.createElement('div');
+  var firstNumText = document.createTextNode("First number:");
+  firstNumTitleDiv.appendChild(firstNumText);
+  form.appendChild(firstNumTitleDiv);
+ 
+  var labelText = "Lower limit:";
+  var firstNumLowerDiv = createFirstNumInput(level, labelText, defaultFirstNums[0]);
+  form.appendChild(firstNumLowerDiv);
+  
+  labelText = "Higher Limit:";
+  var firstNumHigherDiv = createFirstNumInput(level, labelText, defaultFirstNums[1]);
+  form.appendChild(firstNumHigherDiv);
+
+
+  grid.appendChild(levelText);    
+  grid.appendChild(spacer1);
+  grid.appendChild(form);
+
+  return grid;
+}
+
+function createFirstNumInput(level, labelText, val){
+  var firstNumLowerDiv = document.createElement('div');
+  var label = document.createTextNode(labelText);
   var firstNumLower = document.createElement('input');
-  firstNumLower.type = "number";
+  firstNumLower.className = "numberinputL" + level;
+  firstNumLower.type = 'number';
   firstNumLower.name = "firstNumLower";
   firstNumLower.size = "2";
   firstNumLower.min = 1;
   firstNumLower.max = 99;
-  firstNumLower.defaultValue = defaultFirstNums[0];
-  
+  firstNumLower.defaultValue = val;
 
-  form.appendChild(label1);
-  form.appendChild(firstNumLower);
-  
-    
-  grid.appendChild(form);
+//  firstNumLowerDiv.appendChild(firstNumDiv);
+  firstNumLowerDiv.appendChild(label);
+  firstNumLowerDiv.appendChild(firstNumLower);
 
-  return grid;
+return firstNumLowerDiv;
 }
