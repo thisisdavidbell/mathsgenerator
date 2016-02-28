@@ -260,4 +260,7 @@ gridPadding {
   border: 2px solid blue;
 }
 
+.inlinediv {
+  display: inline-block;
+}
 
