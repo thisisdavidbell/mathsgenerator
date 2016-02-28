@@ -394,22 +394,53 @@ function createForm(level, defaultFirstNums,defaultSecNums) {
   var level = level + 1;
   var levelText = document.createTextNode(level + ") Enter desired inputs");
   var spacer1 = document.createElement('div');
-  spacer1.className = 'vspace';
+  spacer1.className = 'vspacesmall';
 
 
   var firstNumTitleDiv = document.createElement('div');
   var firstNumText = document.createTextNode("First number:");
   firstNumTitleDiv.appendChild(firstNumText);
   form.appendChild(firstNumTitleDiv);
- 
+
+// first number lower limit 
   var labelText = "Lower limit:";
   var firstNumLowerDiv = createFirstNumInput(level, labelText, defaultFirstNums[0]);
   form.appendChild(firstNumLowerDiv);
-  
+
+// first number upper limit  
   labelText = "Higher Limit:";
   var firstNumHigherDiv = createFirstNumInput(level, labelText, defaultFirstNums[1]);
   form.appendChild(firstNumHigherDiv);
 
+// checkbox for second number
+  var spacercheckbox = document.createElement('div');
+  spacercheckbox.className = 'vspace';
+  form.appendChild(spacercheckbox);
+
+  var checkboxTitleDiv = document.createElement('div');
+  var checkboxText = document.createTextNode("Second number:");
+  checkboxTitleDiv.appendChild(checkboxText);
+  form.appendChild(checkboxTitleDiv);
+
+  var checkboxesLeft = document.createElement('div');
+  var checkboxesRight = document.createElement('div');
+  checkboxesLeft.className = "inlinediv";
+  checkboxesRight.className = "inlinediv";
+  var hspacercheckbox = document.createElement('div');
+  hspacercheckbox.className = 'hspacer';
+
+
+  for (var i=2; i<10; i++) {
+    var checkbox = createCheckbox(level, i, defaultSecNums[i]);
+    if (i<6) {
+      checkboxesLeft.appendChild(checkbox);
+    } else {
+      checkboxesRight.appendChild(checkbox);
+    }
+  }
+  form.appendChild(checkboxesLeft);
+  form.appendChild(hspacercheckbox);
+  form.appendChild(checkboxesRight);
 
   grid.appendChild(levelText);    
   grid.appendChild(spacer1);
@@ -434,5 +465,19 @@ function createFirstNumInput(level, labelText, val){
   firstNumLowerDiv.appendChild(label);
   firstNumLowerDiv.appendChild(firstNumLower);
 
-return firstNumLowerDiv;
+  return firstNumLowerDiv;
+}
+
+function createCheckbox(level, number, val) {
+  var block = document.createElement('div');
+
+  var label = document.createTextNode(number + ":");
+  var box = document.createElement('input');
+  box.type = 'checkbox';
+  box.checked = val; 
+
+  block.appendChild(label);
+  block.appendChild(box);
+  return block;
+
 }
