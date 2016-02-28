@@ -79,8 +79,17 @@ a{
   height: 10px;
 }
 
+.vspacesmall {
+  height: 5px;
+}
+
 .hspace {
   width: 10px;
+}
+
+.hspacer {
+  display: inline-block;
+  width: 15px
 }
 
 .left {

@@ -394,7 +394,7 @@ function createForm(level, defaultFirstNums,defaultSecNums) {
   var level = level + 1;
   var levelText = document.createTextNode(level + ") Enter desired inputs");
   var spacer1 = document.createElement('div');
-  spacer1.className = 'vspace';
+  spacer1.className = 'vspacesmall';
 
 
   var firstNumTitleDiv = document.createElement('div');
@@ -426,6 +426,9 @@ function createForm(level, defaultFirstNums,defaultSecNums) {
   var checkboxesRight = document.createElement('div');
   checkboxesLeft.className = "inlinediv";
   checkboxesRight.className = "inlinediv";
+  var hspacercheckbox = document.createElement('div');
+  hspacercheckbox.className = 'hspacer';
+
 
   for (var i=2; i<10; i++) {
     var checkbox = createCheckbox(level, i, defaultSecNums[i]);
@@ -436,6 +439,7 @@ function createForm(level, defaultFirstNums,defaultSecNums) {
     }
   }
   form.appendChild(checkboxesLeft);
+  form.appendChild(hspacercheckbox);
   form.appendChild(checkboxesRight);
 
   grid.appendChild(levelText);    
@@ -470,7 +474,7 @@ function createCheckbox(level, number, val) {
   var label = document.createTextNode(number + ":");
   var box = document.createElement('input');
   box.type = 'checkbox';
-  box.defaultValue = val; 
+  box.checked = val; 
 
   block.appendChild(label);
   block.appendChild(box);
