@@ -216,3 +216,48 @@ gridPadding {
   background-color: white;
   color: blue;
 }
+
+.numberinputL1, .numberinputL2, .numberinputL3, .numberinputL4 {
+  width: 50px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  
+  box-sizing: border-box;
+  text-align: right;
+  font-family: Arial;
+  font-size: large;
+}
+
+.numberinputL1 {
+  border-bottom: 2px solid red;
+}
+
+.numberinputL1:hover {
+  border: 2px solid red;
+}
+
+
+.numberinputL2 {
+  border-bottom: 2px solid green;
+}
+
+.numberinputL2:hover {
+  border: 2px solid green;
+}
+
+.numberinputL3 {
+  border-bottom: 2px solid orange;
+}
+.numberinputL3:hover {
+  border: 2px solid orange;
+}
+
+.numberinputL4 {
+  border-bottom: 2px solid blue;
+}
+.numberinputL4:hover {
+  border: 2px solid blue;
+}
+
+
