@@ -171,6 +171,62 @@ function createQuestionAreas(lessonType, answers, levelParams, format){
    }
 }
 
+function createFormAreas(){
+
+//printError("we are here");
+   var colorClass = "colorL";
+   var format = 4;
+   var defaultFirstNums = [[11,19],[11,19],[21,29],[21, 99]];
+   var defaultSecNums = [];
+
+   for (var i=0;i<4; i++) {
+     //for each of the 4 levels
+     defaultSecNums[i] = [];
+
+     for (var j=0; j<11; j++) {
+       // for each number 0-10 inclusive, default to false
+       defaultSecNums[i][j] = false;
+     } //end for j 
+   } // end for i
+  
+   defaultSecNums[0][2] = true;
+   defaultSecNums[0][5] = true;
+   defaultSecNums[1][3] = true;
+   defaultSecNums[1][4] = true;
+   defaultSecNums[2][3] = true;
+   defaultSecNums[2][4] = true;
+   defaultSecNums[3][3] = true;
+   defaultSecNums[3][4] = true;
+
+   var theFormDiv = document.getElementById("theFormDiv");
+
+   for (var i=0; i < format; i++) {
+
+      var row = document.createElement('div');
+      var block = document.createElement("questionArea");
+
+      // call createQuestion for selected type of question
+      var grid = createForm(i, defaultFirstNums[i],defaultSecNums[i]);
+      grid.className=colorClass+(i+1);
+      block.appendChild(grid);
+      row.appendChild(block);
+
+      i++;
+
+      var block2 = document.createElement("questionArea");
+
+      var grid2 = createForm(i, defaultFirstNums[i],defaultSecNums[i]);
+      if (screen) {
+        grid2.className=colorClass+(i+1);
+      }
+      block2.appendChild(grid2);
+      row.appendChild(block2);
+
+      theFormDiv.appendChild(row);
+   }
+}
+
+
 
 /////////////////////////////////////////
 // All lessontype functions below here //
@@ -327,6 +383,33 @@ createQuestion["MGM"] = function(levelParams, valueIndex, answers){
   answerRow.appendChild(answer);
   
   grid.appendChild(answerRow);
+
+  return grid;
+}
+
+function createForm(level, defaultFirstNums,defaultSecNums) {
+
+  var grid = document.createElement('div');
+  var form = document.createElement('form');
+  var level = level++;
+  var levelText = document.createTextNode(level + ")");
+
+  var label1 = document.createTextNode("Lower limit:" + defaultFirstNums[0]);
+
+  var firstNumLower = document.createElement('input');
+  firstNumLower.type = "number";
+  firstNumLower.name = "firstNumLower";
+  firstNumLower.size = "2";
+  firstNumLower.min = 1;
+  firstNumLower.max = 99;
+  firstNumLower.defaultValue = defaultFirstNums[0];
+  
+
+  form.appendChild(label1);
+  form.appendChild(firstNumLower);
+  
+    
+  grid.appendChild(form);
 
   return grid;
 }
